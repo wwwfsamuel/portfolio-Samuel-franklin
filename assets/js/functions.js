@@ -1,6 +1,5 @@
 $(function() {
 	smoothScroll(300);
-	previousPosition();
 	workBelt();
 	workLoad();
 	clientStuff();
@@ -26,26 +25,16 @@ function smoothScroll (duration) {
 	});
 }
 
-function previousPosition () {
-	$(".jumper").on("click", function( e ) {
-
-    e.preventDefault();
-
-    $("body, html").animate({
-      scrollTop: $( $(this).attr('href') ).offset().top
-    }, 600);
-
-  });
-}
-
 function workBelt() {
   $('.thumb-unit').click(function() {
+    $('.work-belt').css('left','-100%');
     $('.work-container').show();
-    $('.thumb-container').hide();
+    $('.thumb-unit').hide(800);
   });
   $('.work-return').click(function() {
-    $('.thumb-container').show();
-		$('.work-container').hide();
+    $('.work-belt').css('left','0%');
+    $('.work-container').hide(800);
+    $('.thumb-unit').show();
   });
 }
 
